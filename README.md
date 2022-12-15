@@ -1,4 +1,5 @@
 # pylunderbunny
 Cycling Integration App
 
-# Uses Micropython, intended to run on the esp32
+# Architecture
+Uses Micropython, intended to run on the esp32
