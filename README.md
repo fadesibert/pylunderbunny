@@ -10,9 +10,12 @@ git clone https://github.com/fadesibert/pylunderbunny
 
 ## Install Terminal App
 ### Mac
-homebrew install picocom
+```brew install picocom```
 ### Linux
-sudo apt-get install picocom
+```sudo apt-get install picocom```
+(optional) - add the user to the dialout group so that sudo isn't required to access the TTY
+
+```sudo usermod -G dialout fadesibert```
 #### Install Uploader (for convenience, rather than copy/paste
 sudo apt-get install ampy
 
