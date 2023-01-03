@@ -17,7 +17,7 @@ git clone https://github.com/fadesibert/pylunderbunny
 
 ```sudo usermod -G dialout fadesibert```
 #### Install Uploader (for convenience, rather than copy/paste
-sudo apt-get install ampy
+pip install adafruit-ampy
 
 ## Setup clean ESP32
 _Best to use an ESP32 Devkit, preferably with USB connector for easy upload / prototyping_
@@ -31,7 +31,7 @@ _Best to use an ESP32 Devkit, preferably with USB connector for easy upload / pr
 ** pip install esptool
 ** _ here, you need to hold the "BOOT" button, run the command and then release it - this boots the ESP32 into "download" mode rather than "run" mode_
 ** esptool.py --port /dev/ttyUSB0 erase_flash
-** esptool.py --port /dev/ttyUSB0 --chip esp32 write_flash -z 0x1000 esp32-20220618-v1.19.1.bin 
+** esptool.py --port /dev/ttyUSB0 --chip esp32 write_flash -z 0x1000 esp32-20220618-v1.19.1.bin
 
 ### Connect to Python interpreter on USB dev port
 `picocom -b 115200 /dev/ttyUSB0`
@@ -53,7 +53,7 @@ For convenience (and by default on ESP32) call your file main.py. This is, IIRC,
 
 ________
 ```
-fadesibert@pop-os:~/pylunderbunny$ sudo picocom -b 115200 /dev/ttyUSB0 
+fadesibert@pop-os:~/pylunderbunny$ sudo picocom -b 115200 /dev/ttyUSB0
 picocom v3.1
 
 port is        : /dev/ttyUSB0
@@ -70,8 +70,8 @@ hangup is      : no
 nolock is      : no
 send_cmd is    : sz -vv
 receive_cmd is : rz -vv -E
-imap is        : 
-omap is        : 
+imap is        :
+omap is        :
 emap is        : crcrlf,delbs,
 logfile is     : none
 initstring     : none
@@ -90,6 +90,6 @@ load:0x40080400,len:4124
 entry 0x40080680
 MicroPython v1.19.1 on 2022-06-18; ESP32 module with ESP32
 Type "help()" for more information.
->>> 
+>>>
 
 ```
