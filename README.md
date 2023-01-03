@@ -24,6 +24,15 @@ _Best to use an ESP32 Devkit, preferably with USB connector for easy upload / pr
 
 ### Flash with Micropython firmware
 [http://docs.micropython.org/en/latest/esp32/quickref.html#installing-micropython](micropython docs)
+* Download the correct firmware for your ESP32 (can also build your own, but not necessary): https://micropython.org/download/esp32/
+* Install esptool (any name for a venv will do - I chose mp-host - mp for micropython, host because this is the "utility" side, rather than micropython running locally)
+** python3 -mvenv mp-host
+** source mp-host/bin/activate
+** pip install esptool
+** _ here, you need to hold the "BOOT" button, run the command and then release it - this boots the ESP32 into "download" mode rather than "run" mode_
+** esptool.py --port /dev/ttyUSB0 erase_flash
+** esptool.py --port /dev/ttyUSB0 --chip esp32 write_flash -z 0x1000 esp32-20220618-v1.19.1.bin 
+
 ### Connect to Python interpreter on USB dev port
 `picocom -b 115200 /dev/ttyUSB0`
 
@@ -69,10 +78,6 @@ initstring     : none
 exit_after is  : not set
 exit is        : no
 
-Type [C-a] [C-h] to see available commands
-Terminal ready
-ets Jun  8 2016 00:22:57
-
 rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
 configsip: 0, SPIWP:0xee
 clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
@@ -83,10 +88,8 @@ load:0x40078000,len:12344
 ho 0 tail 12 room 4
 load:0x40080400,len:4124
 entry 0x40080680
-Traceback (most recent call last):
-  File "main.py", line 11, in <module>
-ImportError: no module named 'ulab'
-MicroPython v1.18 on 2022-01-17; ESP32 module with ESP32
+MicroPython v1.19.1 on 2022-06-18; ESP32 module with ESP32
 Type "help()" for more information.
 >>> 
+
 ```
